@@ -4,7 +4,8 @@ root_dir=${PWD}
 raw_dir=${root_dir}/inputs/raw
 derivatives_dir=${root_dir}/outputs/derivatives
 preproc_dir=${derivatives_dir}/cpp_spm-preproc
-stats_dir=${derivatives_dir}/cpp_spm-stats
+laynii_dir=${derivatives_dir}/laynii
+freesurfer_dir=${derivatives_dir}/freesurfer
 
 # get url of the gin repos from config
 source dataladConfig.sh
@@ -37,13 +38,23 @@ if [ ! -z "${URL_DER_PREPROC}" ]; then
     cd "${root_dir}"
 fi
 
-datalad create -d . "${stats_dir}"
+datalad create -d . "${laynii_dir}"
+
+if [ ! -z "${URL_DER_LAYNII}" ]; then
+    cd "${laynii_dir}"
+    datalad siblings add --name origin --url "${URL_DER_LAYNII}"
+    cd ..
+    datalad subdatasets --set-property url "${URL_DER_LAYNII}" laynii
+    cd "${root_dir}"
+fi
+
+datalad create -d . "${freesurfer_dir}"
 
 if [ ! -z "${URL_DER_STATS}" ]; then
-    cd "${stats_dir}"
-    datalad siblings add --name origin --url "${URL_DER_STATS}"
+    cd "${freesurfer_dir}"
+    datalad siblings add --name origin --url "${URL_DER_FREESURFER}"
     cd ..
-    datalad subdatasets --set-property url "${URL_DER_STATS}" cpp_spm-stats
+    datalad subdatasets --set-property url "${URL_DER_FREESURFER}" freesurfer
     cd "${root_dir}"
 fi
 
