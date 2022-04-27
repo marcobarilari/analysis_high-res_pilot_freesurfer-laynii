@@ -4,3 +4,7 @@
 	datalad-url = https://github.com/cpp-lln-lab/CPP_SPM.git
 [submodule "inputs/raw"]
 	datalad-url = git@gin.g-node.org:/cpp_brewery/analysis_V5_high-res_pilot_nighres.git
+[submodule "outputs/derivatives"]
+	path = outputs/derivatives
+	url = ./outputs/derivatives
+	datalad-id = 73c0a8e0-ef20-4df6-aae7-82624e5eecf5
