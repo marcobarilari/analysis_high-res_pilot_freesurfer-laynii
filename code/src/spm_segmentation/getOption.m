@@ -17,7 +17,7 @@ function opt = getOption()
     % opt.groups = {''};
     % opt.subjects = {[]};
     %
-    opt.subjects = {'pilot001'};
+    opt.subjects = {'pilot001', 'pilot004', 'pilot005'};
 
     opt.query.modality = 'anat';
     opt.query.ses = '001';
@@ -34,7 +34,7 @@ function opt = getOption()
     opt.segment.samplingDistance = 2;
     
     this_dir = fileparts(mfilename('fullpath'));
-    root_dir = fullfile(this_dir, '..', '..');
+    root_dir = fullfile(this_dir, '..', '..', '..');
     opt.dir.raw = fullfile(root_dir, 'inputs', 'raw');
     opt.dir.derivatives = fullfile(root_dir, 'outputs', 'derivatives');
 
