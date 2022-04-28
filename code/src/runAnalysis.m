@@ -3,41 +3,31 @@
 clear;
 clc;
 
-% Sets up the environment for the analysis and add libraries to the path
-initEnv();
+addpath(fullfile(pwd, '..', '..'));
+cpp_spm('init');
 
-%% Set options
 opt = getOption();
 
-checkDependencies();
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% BIDS = bids.layout(opt.dir.raw, ...
+%                    'use_schema', 0);
+% 
+% opt.query = [];
+% 
+% opt.query.modality = 'anat';
+% opt.query.ses = '001';
+% opt.query.desc = 'skullstripped';
+% opt.query.acq = 'r0p375';
+% opt.query.suffix = 'UNIT1';
+% 
+% bids.query(BIDS, 'data', opt.query)
 
-%% Run batches
-reportBIDS(opt);
-bidsCopyRawFolder(opt, 1);
+% reportBIDS(opt);
 
-% In case you just want to run segmentation and skull stripping
-% Skull stripping is also included in 'bidsSpatialPrepro'
-% bidsSegmentSkullStrip(opt);
+% unzip = true;
+% bidsCopyInputFolder(opt, unzip);
 
-bidsSTC(opt);
+bidsSegmentSkullStrip(opt);
 
-bidsSpatialPrepro(opt);
 
-% The following do not run on octave for now (because of spmup)
-anatomicalQA(opt);
-bidsResliceTpmToFunc(opt);
-functionalQA(opt);
-
-% Smoothing to apply
-FWHM = 6;
-bidsSmoothing(FWHM, opt);
-
-bidsFFX('specifyAndEstimate', opt, FWHM);
-bidsFFX('contrasts', opt, FWHM);
-bidsResults(opt, FWHM);
-
-bidsRFX('smoothContrasts', opt, FWHM, conFWHM);
-bidsRFX('RFX', opt, FWHM, conFWHM);
-
-% WIP: group level results
-% bidsResults(opt, FWHM);
