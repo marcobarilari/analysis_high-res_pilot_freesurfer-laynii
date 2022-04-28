@@ -30,7 +30,7 @@ function opt = getOption()
     
     opt.bidsFilterFile.t1w.suffix = 'UNIT1';
   
-    opt.segment.biasfwhm = 60;
+    opt.segment.biasfwhm = 18;
     opt.segment.samplingDistance = 2;
     
     this_dir = fileparts(mfilename('fullpath'));

@@ -3,7 +3,7 @@
 clear;
 clc;
 
-addpath(fullfile(pwd, '..', '..'));
+addpath(fullfile(pwd, '..', '..', '..'));
 cpp_spm('init');
 
 opt = getOption();
@@ -25,8 +25,8 @@ opt = getOption();
 
 % reportBIDS(opt);
 
-% unzip = true;
-% bidsCopyInputFolder(opt, unzip);
+unzip = true;
+bidsCopyInputFolder(opt, unzip);
 
 bidsSegmentSkullStrip(opt);
 
