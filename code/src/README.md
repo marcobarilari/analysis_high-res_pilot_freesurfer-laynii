@@ -30,7 +30,7 @@ Code in `freesurfer_recon-all`, run on the monster and it takes ~2 days (*"Don't
 
 - sub-pilot001:
 
-...stil running
+it worked with no bias corrected image 
 
 - sub-pilot004:
 
@@ -66,5 +66,7 @@ TODO:
 Code in `laynii_layers`.
 
 1. Convert `*/mri/aseg.mgz` outputs into nii files and save in save in`derivatives/laynii/sub-*/ses-*` subj by subj via `convertAseg.sh`, run locally
-1. "rimmify" freesurfer `mri/aseg.mgz` output to have 3 valuse according to LAYNII requirments. Code by Faruk Gulban, add in the script the file path, run locally
+
+2. "rimmify" freesurfer `mri/aseg.mgz` output to have 3 valuse according to LAYNII requirments. Code by Faruk Gulban, add in the script the file path, run locally
+
 3. Make layers subj by subj via `makeLayers.sh`, run on the monster.

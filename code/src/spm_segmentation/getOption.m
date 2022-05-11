@@ -17,7 +17,7 @@ function opt = getOption()
     % opt.groups = {''};
     % opt.subjects = {[]};
     %
-    opt.subjects = {'pilot001', 'pilot004', 'pilot005'};
+    opt.subjects = {'pilot001'};
 
     opt.query.modality = 'anat';
     opt.query.ses = '001';
@@ -30,7 +30,7 @@ function opt = getOption()
     
     opt.bidsFilterFile.t1w.suffix = 'UNIT1';
   
-    opt.segment.biasfwhm = 18;
+    opt.segment.biasfwhm = 30;
     opt.segment.samplingDistance = 2;
     
     this_dir = fileparts(mfilename('fullpath'));

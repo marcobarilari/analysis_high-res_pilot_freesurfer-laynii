@@ -5,7 +5,7 @@ import nibabel as nb
 import numpy as np
 from scipy.ndimage import morphology, generate_binary_structure
 
-INPUT = "/Users/barilari/data/V5_high-res_pilot001_analyses/analysis_high-res_pilot_freesurfer-laynii/outputs/derivatives/laynii/sub-pilot004/ses-001/layers/sub-pilot004_ses-001_acq-r0p375_space-individual_label-aseg_freesurferseg.nii"
+INPUT = "/Users/barilari/data/V5_high-res_pilot001_analyses/analysis_high-res_pilot_freesurfer-laynii/outputs/derivatives/laynii/sub-pilot001/ses-001/layers/sub-pilot001_ses-001_acq-r0p375_space-individual_label-aseg_freesurferseg.nii"
 
 WM_LABELS = [2, 41]
 GM_LABELS = [3, 42]

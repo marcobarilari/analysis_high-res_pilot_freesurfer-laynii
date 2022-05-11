@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-subjLabel='pilot004'
+subjLabel='pilot001'
 
 # # for the monster
 # export FREESURFER_HOME=/usr/local/freesurfer/7.2.0-1
@@ -15,8 +15,10 @@ subjLabel='pilot004'
 
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
-export SUBJECTS_DIR=/Users/barilari/data/V5_high-res_pilot001_analyses/analysis_high-res_pilot_freesurfer-laynii/outputs/derivatives/freesurfer/sub-$subjLabel/ses-001/anat
+export SUBJECTS_DIR=/Users/barilari/data/V5_high-res_pilot001_analyses/analysis_high-res_pilot_freesurfer-laynii/outputs/derivatives/freesurfer/sub-$subjLabel/ses-001/anat/biasco-no
 
 export laynii_dir=/Users/barilari/data/V5_high-res_pilot001_analyses/analysis_high-res_pilot_freesurfer-laynii/outputs/derivatives/laynii/sub-$subjLabel/ses-001/layers
+
+mkdir -p $laynii_dir
 
 mri_convert $SUBJECTS_DIR/mri/aseg.mgz $laynii_dir/sub-${subjLabel}_ses-001_acq-r0p375_space-individual_label-aseg_freesurferseg.nii
